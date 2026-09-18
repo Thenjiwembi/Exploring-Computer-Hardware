@@ -1,0 +1,119 @@
+/* ==========================================================================
+   1. Skip to Main Content Link
+   ========================================================================== */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background-color: #111111;
+    color: #ffffff;
+    padding: 8px 16px;
+    z-index: 100;
+    text-decoration: underline;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ==========================================================================
+   2. Base Tag Styling & Commented Out LI Rule
+   ========================================================================== */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #222222;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1d2a51;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Commented out previous li styling per requirements */
+/*
+li {
+    display: inline-block;
+    width: 120px;
+}
+*/
+
+/* ==========================================================================
+   3. Nav & Descendant Selector Rules
+   ========================================================================== */
+nav {
+    display: inline-block;
+    width: 80%;
+    background-color: #2b6cb0;
+    padding: 10px;
+}
+
+/* Descendant selector targeting only images inside nav */
+nav img {
+    width: 10%;
+    height: auto;
+    vertical-align: middle;
+}
+
+nav ul {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   4. Grid Class Layout & Grid Image Descendant Selector
+   ========================================================================== */
+.grid {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+    column-gap: 5%;
+    margin: 20px 0;
+}
+
+/* Descendant selector targeting ONLY images inside .grid */
+.grid img {
+    width: 100%;
+    height: auto;
+}
+
+/* ==========================================================================
+   5. Flex Class Layout
+   ========================================================================== */
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+/* ==========================================================================
+   6. Footer
+   ========================================================================== */
+footer {
+    background-color: #1d2a51;
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+}
