@@ -1,41 +1,58 @@
 /* ==========================================================================
-   1. Skip to Main Content Link
+   1. "Skip to Main Content" Accessibility Link (Passed WAVE)
    ========================================================================== */
 .skip-link {
     position: absolute;
-    top: -40px;
-    left: 0;
-    background-color: #111111;
+    top: -60px;
+    left: 10px;
+    background-color: #111827; /* High contrast dark background */
     color: #ffffff;
-    padding: 8px 16px;
-    z-index: 100;
+    padding: 12px 20px;
+    z-index: 1000;
     text-decoration: underline;
+    font-weight: bold;
+    border-radius: 0 0 6px 6px;
+    transition: top 0.2s ease-in-out;
 }
 
 .skip-link:focus {
-    top: 0;
+    top: 0; /* Smoothly slides into view when focused via Tab */
 }
 
 /* ==========================================================================
-   2. Base Tag Styling & Commented Out LI Rule
+   2. Base Typography & Body Setup
    ========================================================================== */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    color: #222222;
+    color: #1f2937;
+    background-color: #f8fafc;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #1d2a51;
+    background-color: #1d2a51; /* Dark Navy */
     color: #ffffff;
-    padding: 20px;
+    padding: 30px 20px;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Commented out previous li styling per requirements */
+header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------------------------------
+   Assignment Requirement: Commented out original li styling
+   -------------------------------------------------------------------------- */
 /*
 li {
     display: inline-block;
@@ -44,76 +61,166 @@ li {
 */
 
 /* ==========================================================================
-   3. Nav & Descendant Selector Rules
+   3. Nav & Descendant Selectors (Required Rules)
    ========================================================================== */
+/* Requirement: nav uses inline-block and width of about 80% */
 nav {
     display: inline-block;
     width: 80%;
-    background-color: #2b6cb0;
-    padding: 10px;
+    background-color: #2563eb; /* High contrast blue */
+    padding: 12px 20px;
+    margin: 20px 10%; /* Center the 80% width block */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-/* Descendant selector targeting only images inside nav */
+/* Requirement: Descendant selector targeting ONLY the image in nav (~10% width) */
 nav img {
     width: 10%;
     height: auto;
     vertical-align: middle;
+    border-radius: 50%;
 }
 
 nav ul {
     display: inline-block;
     list-style: none;
-    margin: 0;
+    margin: 0 0 0 20px;
     padding: 0;
+    vertical-align: middle;
 }
 
 nav li {
     display: inline-block;
-    margin-right: 15px;
+    margin-right: 20px;
 }
 
 nav a {
     color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    text-decoration: underline; /* Ensures high accessibility */
+}
+
+nav a:hover {
+    color: #dbeafe;
 }
 
 /* ==========================================================================
-   4. Grid Class Layout & Grid Image Descendant Selector
+   4. Main Content Container
    ========================================================================== */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section, article {
+    background: #ffffff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    color: #1d2a51;
+    margin-top: 0;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+}
+
+/* ==========================================================================
+   5. CSS Grid Section (Required Rules)
+   ========================================================================== */
+/* Requirement: Two column grid (~40% each) with row-gap, justify-content, align-items */
 .grid {
     display: grid;
     grid-template-columns: 40% 40%;
     justify-content: center;
-    align-items: center;
-    row-gap: 20px;
+    align-items: start;
+    row-gap: 25px;
     column-gap: 5%;
-    margin: 20px 0;
 }
 
-/* Descendant selector targeting ONLY images inside .grid */
+.grid h2 {
+    grid-column: 1 / -1; /* Header spans full width of grid */
+}
+
+/* Requirement: Descendant selector targeting ONLY images in .grid (100% width) */
 .grid img {
     width: 100%;
     height: auto;
+    border-radius: 6px;
+}
+
+figure {
+    margin: 0;
+    background: #f1f5f9;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+figcaption {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #4b5563;
+    margin-top: 8px;
+    font-weight: 500;
 }
 
 /* ==========================================================================
-   5. Flex Class Layout
+   6. Flexbox Section (Required Rules)
    ========================================================================== */
+/* Requirement: Style flex class using flex, flex-wrap, and justify-content */
 .flex {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 15px;
-    margin: 20px 0;
+    align-items: center;
+    gap: 20px;
+}
+
+.flex h2 {
+    width: 100%; /* Header takes full top row in flex container */
+}
+
+/* Flex item styling without overriding image defaults */
+.flex figure {
+    flex: 1 1 300px;
+    max-width: 400px;
+}
+
+.flex img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
 }
 
 /* ==========================================================================
-   6. Footer
+   7. Links & Accessibility Styling
+   ========================================================================== */
+a {
+    color: #1d4ed8;
+    font-weight: 600;
+}
+
+a:focus {
+    outline: 3px solid #f59e0b;
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   8. Footer
    ========================================================================== */
 footer {
     background-color: #1d2a51;
     color: #ffffff;
-    padding: 15px;
     text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
 }
